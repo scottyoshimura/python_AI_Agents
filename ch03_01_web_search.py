@@ -1,6 +1,7 @@
 """
 This script is from the below book. I am learning about how to build agentic AI systems, 
-and this is a beginning example to understand "the anatomy of an agent"
+and this is a beginning example to understand "the anatomy of an agent
+this script takes the question as a command-line argument.
 
 
 Chapter 3 — Anatomy of an Agent — Example 1
