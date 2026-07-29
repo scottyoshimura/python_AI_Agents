@@ -1,4 +1,9 @@
 """
+
+This script is from the below book. I am learning about how to build agentic AI systems, 
+and this is a beginning example to understand "the anatomy of an agent"
+this script has a hardcoded question. where as ch03_01_web_search.py takes the question as a command-line argument.
+
 Chapter 3 — Anatomy of an Agent — Example 3
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
