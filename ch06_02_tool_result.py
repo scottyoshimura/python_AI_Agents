@@ -139,7 +139,7 @@ def run_support_agent(customer_message: str) -> str:
 
     for step in range(10):
         response = client.messages.create(
-            model="claude-sonnet-4-6-20250514",
+            model="claude-sonnet-5",
             max_tokens=1024,
             system=system,
             tools=TOOLS,
@@ -168,5 +168,5 @@ if __name__ == '__main__':
         print('Set ANTHROPIC_API_KEY env var to run this example.')
         print('  export ANTHROPIC_API_KEY=your_key_here')
     else:
-        result = get_order_by_id('ORD-1043')
+        result = get_order_by_id('abc-123')
         print(result)
