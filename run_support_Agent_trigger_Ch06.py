@@ -8,6 +8,6 @@ if __name__ == "__main__":
         print("  export ANTHROPIC_API_KEY=your_key_here")
     else:
         result = run_support_agent(
-            "I want a refund for ORD-1042 because the kettle arrived broken."
+            "I want a refund for a oder ch-39."
         )
         print(result)
