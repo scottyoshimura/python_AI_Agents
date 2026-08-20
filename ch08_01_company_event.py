@@ -22,18 +22,12 @@ from typing import Optional
 
 client = anthropic.Anthropic()
 
-class CompanyEvent(BaseModel):  # ① the target schema the extraction must satisfy
+class CompanyEvent(BaseModel):
     company_name: str
     event_type: str
-    date: str  # YYYY-MM-DD
+    date: str
     financial_impact_usd_millions: Optional[float]
     summary: str
-
-article_text = """
-Apple said it would invest in a new chip manufacturing facility
-in Texas. The company said the expansion is part of a broader effort to increase domestic production
-and reduce supply chain risk.
-"""
 
 
 EXTRACT_SYSTEM = """
@@ -59,31 +53,49 @@ Write a brief reflection (3-5 sentences) identifying:
 Do not produce JSON. Produce only a plain-text reflection.
 """
 
-def extract_with_reflexion(article_text: str, max_retries: int = 3) -> CompanyEvent:
-    """Extract a CompanyEvent from article text, retrying with reflection on validation failure."""
+def extract_with_reflexion_debug(article_text: str, max_retries: int = 3) -> CompanyEvent:
+    print("\n=== AGENT LOOP START ===")
+    print("SOURCE TEXT:")
+    print(article_text)
+    print("======================\n")
+
     schema_str = json.dumps(CompanyEvent.model_json_schema(), indent=2)
     system = EXTRACT_SYSTEM.format(schema=schema_str)
     messages = [{"role": "user", "content": article_text}]
-    reflections = []  # ② accumulate reflections across retries
+    reflections = []
 
-    for attempt in range(max_retries):  # ③ bounded retry loop
+    for attempt in range(max_retries):
+        print(f"\n--- ATTEMPT {attempt + 1} ---")
         response = client.messages.create(
             model="claude-sonnet-4-6",
             max_tokens=512,
             system=system,
             messages=messages,
         )
+
         raw = response.content[0].text.strip()
+        print("RAW MODEL OUTPUT:")
+        print(raw)
+        print()
 
         try:
             parsed = json.loads(raw)
-            event = CompanyEvent(**parsed)  # validate against Pydantic schema
-            return event  # success
+            print("PARSED JSON:")
+            print(json.dumps(parsed, indent=2))
+            event = CompanyEvent(**parsed)
+            print("\nVALIDATION: OK")
+            print("FINAL OBJECT:")
+            print(event)
+            print("\n=== AGENT LOOP END ===")
+            return event
+
         except (json.JSONDecodeError, ValidationError) as e:
+            print("VALIDATION: FAILED")
+            print(type(e).__name__)
+            print(e)
             if attempt == max_retries - 1:
                 raise RuntimeError(f"Extraction failed after {max_retries} attempts. Last error: {e}")
 
-            # ④ generate a reflection on the failure
             reflect_messages = [
                 {"role": "user", "content": (
                     f"Original text:\n{article_text}\n\n"
@@ -100,15 +112,18 @@ def extract_with_reflexion(article_text: str, max_retries: int = 3) -> CompanyEv
             reflection = reflect_response.content[0].text.strip()
             reflections.append(reflection)
 
-            # ⑤ inject the reflection into the extraction context before retrying
-            reflection_tag = f"[REFLECTION from attempt {attempt + 1}]: {reflection}"
+            print("REFLECTION:")
+            print(reflection)
+            print()
+
             messages = [
                 {"role": "user", "content": article_text},
                 {"role": "assistant", "content": raw},
-                {"role": "user", "content": reflection_tag + "\n\nPlease try the extraction again, applying this correction."},
+                {"role": "user", "content": f"[REFLECTION from attempt {attempt + 1}]: {reflection}\n\nPlease try the extraction again, applying this correction."},
             ]
 
     raise RuntimeError("Unreachable")
+
 
 if __name__ == '__main__':
     import os
@@ -116,5 +131,14 @@ if __name__ == '__main__':
         print('Set ANTHROPIC_API_KEY env var to run this example.')
         print('  export ANTHROPIC_API_KEY=your_key_here')
     else:
-        result = extract_with_reflexion(article_text, 3)
+        article_text = """
+Apple said it will invest $500 million in a new chip manufacturing facility in Texas.
+The company said the expansion will reduce supply-chain risk and increase domestic production.
+The announcement was made on June 10.
+"""
+        result = extract_with_reflexion_debug(article_text, 3)
+        print("\nRESULT:")
         print(result)
+  
+
+
