@@ -132,9 +132,9 @@ if __name__ == '__main__':
         print('  export ANTHROPIC_API_KEY=your_key_here')
     else:
         article_text = """
-Apple said it will invest $500 million in a new chip manufacturing facility in Texas.
-The company said the expansion will reduce supply-chain risk and increase domestic production.
-The announcement was made on June 10.
+Flowers Foods reported lower second-quarter results as pressure on household budgets, changing consumer purchasing patterns and heightened competition weighed on demand in the fresh packaged bread category. The company said net sales declined 4% from the prior-year period, while volume fell 5.8%.
+Chairman and CEO Ryals McMullian said the operating environment became more difficult than the company anticipated during the quarter. He pointed to greater consumer price sensitivity and trade-down activity, as well as demand shifting toward formats, package sizes and product attributes where Flowers is still building scale.
+“Together, these factors pressured volume and contributed to a 4% decline in sales,” McMullian said. The company said competitive pricing and promotional intensity also affected its performance.
 """
         result = extract_with_reflexion_debug(article_text, 3)
         print("\nRESULT:")
