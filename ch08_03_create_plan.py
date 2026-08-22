@@ -127,6 +127,6 @@ if __name__ == '__main__':
         #result = create_plan(["Build a REST API for a todo app"])
         #plan_validation = validate_plan(result)
         #print(result)
-        #print(f"Plan validation: {plan_validation}")
+        initiatives = ["Build a REST API for a todo app"]
         result = run_planning_agent(initiatives)
         print(result)
