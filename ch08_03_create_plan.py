@@ -2,6 +2,7 @@
 Chapter 8 — Planning and Decomposition — Example 3
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+This is an example of a plan-and-execute agent, where the model is asked to produce an explicit plan before any execution begins. The plan is validated for structure before execution, and the model works through the plan step by step using tool calls.
 
 Setup:
     pip install -r requirements.txt
