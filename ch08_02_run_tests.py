@@ -51,7 +51,7 @@ def run_tests(code: str, tests: str) -> tuple[int, str]:
             timeout=10,
         )
         combined = (result.stdout + "\n" + result.stderr).strip()
-        passed = combined.count(" PASSED")
+        passed = passed = 1 if result.returncode == 0 else 0
         return passed, combined[-800:]
     except subprocess.TimeoutExpired:
         return 0, "Timeout: implementation ran for more than 10 seconds"
