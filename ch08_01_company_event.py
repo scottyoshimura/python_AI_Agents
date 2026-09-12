@@ -132,9 +132,15 @@ if __name__ == '__main__':
         print('  export ANTHROPIC_API_KEY=your_key_here')
     else:
         article_text = """
-Flowers Foods reported lower second-quarter results as pressure on household budgets, changing consumer purchasing patterns and heightened competition weighed on demand in the fresh packaged bread category. The company said net sales declined 4% from the prior-year period, while volume fell 5.8%.
-Chairman and CEO Ryals McMullian said the operating environment became more difficult than the company anticipated during the quarter. He pointed to greater consumer price sensitivity and trade-down activity, as well as demand shifting toward formats, package sizes and product attributes where Flowers is still building scale.
-“Together, these factors pressured volume and contributed to a 4% decline in sales,” McMullian said. The company said competitive pricing and promotional intensity also affected its performance.
+FS KKR Capital will make investor presentations available on its website after the market close on August 13, 2026.
+
+Key Highlights:
+
+Presentations to be posted on the "Events & Presentations" page in the For Investors section of the company website.
+Information furnished under Item 7.01 is not deemed filed under the Exchange Act and is not incorporated by reference.
+Company disclaims any obligation to update the presentations except as required by federal securities laws.
+Form 8-K includes standard forward-looking statement caution noting risks and uncertainties affecting future results.
+Original SEC Filing: FS KKR Capital Corp [ FSK ] - 8-K - Aug. 13, 2026
 """
         result = extract_with_reflexion_debug(article_text, 3)
         print("\nRESULT:")
