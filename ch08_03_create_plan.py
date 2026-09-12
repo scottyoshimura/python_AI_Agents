@@ -93,16 +93,36 @@ def execute_plan(plan: str) -> str:  # ③ execution phase
             return next((b.text for b in response.content if hasattr(b, "text")), "No output produced.")
 
         messages.append({"role": "assistant", "content": response.content})
+
         tool_results = []
         for block in response.content:
             if block.type == "tool_use":
-                results = tavily.search(query=block.input["query"], max_results=3)["results"]
+                results = tavily.search(
+                    query=block.input["query"],
+                    max_results=3,
+                )["results"]
+
                 tool_results.append({
                     "type": "tool_result",
                     "tool_use_id": block.id,
-                    "content": json.dumps([{"title": r["title"], "content": r["content"][:300]} for r in results]),
+                    "content": json.dumps([
+                        {
+                            "title": result["title"],
+                            "content": result["content"][:300],
+                        }
+                        for result in results
+                    ]),
                 })
-        messages.append({"role": "user", "content": tool_results})
+
+        if not tool_results:
+            return next(
+                (block.text for block in response.content if hasattr(block, "text")),
+                "Model stopped without requesting a search.",
+            )
+
+        messages.append({
+            "role": "user",
+            "content": tool_results,})
 
     return "Execution budget exceeded."
 
@@ -127,6 +147,6 @@ if __name__ == '__main__':
         #result = create_plan(["Build a REST API for a todo app"])
         #plan_validation = validate_plan(result)
         #print(result)
-        initiatives = ["Build a REST API for a todo app"]
+        initiatives = ["I want to build a new application. It should be very simple, like something I can just get using to test the idea if it works. The idea is for a baseball collectible trading platform. A seller will be able to create an account, associate a zip code to the account. The seller only needs to input a user name and an associated email. the seller will be able to add a picture of what they want to sell and a picture of it. A buyer will be able to create an account. If a buyer wants to buy what the seller is selling, they will be able to make an offer. If the buyer wants to accept the offer, they will accept and be able to share their email address. The buyer and seller can then make arrangements off the application over email to complete the sale. This should be able to be hosted on Amazon web services."]
         result = run_planning_agent(initiatives)
         print(result)
