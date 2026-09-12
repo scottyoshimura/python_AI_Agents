@@ -147,6 +147,6 @@ if __name__ == '__main__':
         #result = create_plan(["Build a REST API for a todo app"])
         #plan_validation = validate_plan(result)
         #print(result)
-        initiatives = ["I want to build a new application. It should be very simple, like something I can just get using to test the idea if it works. The idea is for a baseball collectible trading platform. A seller will be able to create an account, associate a zip code to the account. The seller only needs to input a user name and an associated email. the seller will be able to add a picture of what they want to sell and a picture of it. A buyer will be able to create an account. If a buyer wants to buy what the seller is selling, they will be able to make an offer. If the buyer wants to accept the offer, they will accept and be able to share their email address. The buyer and seller can then make arrangements off the application over email to complete the sale. This should be able to be hosted on Amazon web services."]
+        initiatives = ["I want to build a new application. It should be very simple, like something I can just get using to test the idea if it works. The idea is ....."]
         result = run_planning_agent(initiatives)
         print(result)
