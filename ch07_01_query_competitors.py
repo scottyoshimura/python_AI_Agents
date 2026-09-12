@@ -2,6 +2,7 @@
 Chapter 7 — Memory — Example 1
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+This example is meant to illustrate how to use a graph database to store and query relationships between companies, such as competitors and shared board members. It creates a neo
 
 Setup:
     pip install -r requirements.txt
