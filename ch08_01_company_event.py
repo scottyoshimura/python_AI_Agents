@@ -2,6 +2,7 @@
 Chapter 8 — Planning and Decomposition — Example 1
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+this iss an example of reflexion, where the model is asked to self-critique and correct its own output when it fails validation.
 
 Setup:
     pip install -r requirements.txt
