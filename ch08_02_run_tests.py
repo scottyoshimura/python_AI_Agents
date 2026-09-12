@@ -2,7 +2,7 @@
 Chapter 8 — Planning and Decomposition — Example 2
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
-This is an example of tree-of-thoughts (ToT) code generation, where multiple candidate implementations are generated and tested against a suite of unit tests. The best implementation is selected based on test results.
+This is an example of tree-of-thoughts (ToT) code generation, where multiple candidate implementations are generated and tested against a suite of unit tests. The best implementation is selected based on test results..
 
 Setup:
     pip install -r requirements.txt
