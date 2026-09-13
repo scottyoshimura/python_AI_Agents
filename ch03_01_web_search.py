@@ -1,13 +1,12 @@
 """
-This script is from the below book. I am learning about how to build agentic AI systems, 
-and this is a beginning example to understand "the anatomy of an agent
-this script takes the question as a command-line argument.
-this is an example of a ReAct-style research agent that uses the Messages API with tool use to answer questions by searching the web, reading relevant pages, and synthesizing findings. It demonstrates how to define tools, handle tool calls, and manage iterative reasoning with a model.
-*not the confidence measure.
-
 Chapter 3 — Anatomy of an Agent — Example 1
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+
+this describes the anatomy of an agent: model, tool set, memory, loop, termination policy. 
+this is an example of a ReAct-style research agent that uses the Messages API with tool use to answer questions by searching the web, reading relevant pages, and synthesizing findings. It demonstrates how to define tools, handle tool calls, and manage iterative reasoning with a model. 
+
+this takes a question as input from the command line
 
 Setup:
     pip install -r requirements.txt
