@@ -3,7 +3,7 @@ This script is from the below book. I am learning about how to build agentic AI 
 and this is a beginning example to understand "the anatomy of an agent
 this script takes the question as a command-line argument.
 this is an example of a ReAct-style research agent that uses the Messages API with tool use to answer questions by searching the web, reading relevant pages, and synthesizing findings. It demonstrates how to define tools, handle tool calls, and manage iterative reasoning with a model.
-*not the confidence measure
+*not the confidence measure.
 
 Chapter 3 — Anatomy of an Agent — Example 1
 The Agentic AI Bible (Revised & Expanded Edition 2026)
