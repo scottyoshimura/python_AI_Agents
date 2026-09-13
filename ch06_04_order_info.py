@@ -2,6 +2,7 @@
 Chapter 6 — Tool Use and Function Calling — Example 4
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+this is an example of how to implement a customer support agent that can look up order information, issue refunds, and escalate issues to human agents. It demonstrates the use of idempotency keys to prevent duplicate refunds and provides structured return types for tool results.
 
 Setup:
     pip install -r requirements.txt
