@@ -2,6 +2,7 @@
 Chapter 5 — LLMs as Reasoning Engines — Example 1
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+this is an example of how to use a Claude model to research recent financial news about a company, identify the three most financially significant events, and summarize the results. It demonstrates how to use tools (like Tavily) to retrieve relevant information and how to handle iterative reasoning with a model.
 
 This is a simple research agent that uses Claude to search for recent news about a company and identify the three most financially 
 significant events. It also summarizes the latency, the input tokens, and the output tokens.
@@ -137,5 +138,5 @@ if __name__ == '__main__':
         print('Set TAVILY_API_KEY env var to run this example.')
         print('  export TAVILY_API_KEY=your_key_here')
     else:
-        result = run_research_agent("claude-opus-5", "OpenAI")
+        result = run_research_agent("claude-opus-5", "ACI Worldwide")
         print(result)
