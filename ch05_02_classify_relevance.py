@@ -2,9 +2,7 @@
 Chapter 5 — LLMs as Reasoning Engines — Example 2
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
-
-This script reviews a set of search snippets and classifies their relevance to a given question. It uses haiku for quick filtering 
-and sonnet for synthesis.
+this is an example of how to use a tiered approach to research, where a fast, cheap model (Haiku) is used to filter out irrelevant search snippets, and a more capable model (Sonnet) is used to synthesize the final answer from the relevant evidence.
 
 
 Setup:
