@@ -2,6 +2,7 @@
 Chapter 6 — Tool Use and Function Calling — Example 3
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+this is an example of how to search for orders by product keyword when the customer remembers what they bought but not their order ID. It demonstrates how to use a structured ToolResult class to standardize the output of tool calls, including success status, data payload, and error information.
 
 Setup:
     pip install -r requirements.txt
