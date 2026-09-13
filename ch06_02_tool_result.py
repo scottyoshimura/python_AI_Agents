@@ -2,6 +2,7 @@
 Chapter 6 — Tool Use and Function Calling — Example 2
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+this example demonstrates how to use a structured ToolResult class to standardize the output of tool calls, including success status, data payload, and error information. It also shows how to handle non-idempotent operations (like issuing refunds) safely by checking the state of the system before retrying.
 
 Setup:
     pip install -r requirements.txt
@@ -169,4 +170,7 @@ if __name__ == '__main__':
         print('  export ANTHROPIC_API_KEY=your_key_here')
     else:
         result = get_order_by_id('abc-123')
+        result0 = get_order_by_id('ORD-1042')
         print(result)
+        print("---")
+        print(result0)
