@@ -2,6 +2,7 @@
 Chapter 3 — Anatomy of an Agent — Example 2
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
+this is a diagram of an agent loop that illustrates how an agent can use a model, memory, and tools to iteratively reason about a task. It shows how the system prompt, model output, tool schemas, and tool runtime interact in a loop until a final answer is produced.
 
 Setup:
     pip install -r requirements.txt
