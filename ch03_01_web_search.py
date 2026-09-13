@@ -2,6 +2,7 @@
 This script is from the below book. I am learning about how to build agentic AI systems, 
 and this is a beginning example to understand "the anatomy of an agent
 this script takes the question as a command-line argument.
+this is an example of a ReAct-style research agent that uses the Messages API with tool use to answer questions by searching the web, reading relevant pages, and synthesizing findings. It demonstrates how to define tools, handle tool calls, and manage iterative reasoning with a model.
 
 
 Chapter 3 — Anatomy of an Agent — Example 1
@@ -185,3 +186,8 @@ if __name__ == "__main__":
         sys.exit(2)
     result = run(" ".join(sys.argv[1:]))
     print(json.dumps(result.__dict__, indent=2))
+    print(f"Status: {result.status}")
+    print(f"Steps: {result.steps}")
+    print(f"Confidence: {result.confidence}")
+    print(f"Answer: {result.answer}")
+    print(f"Sources: {result.sources}")
