@@ -2,7 +2,7 @@
 Chapter 8 — Planning and Decomposition — Example 4
 The Agentic AI Bible (Revised & Expanded Edition 2026)
 Companion repository: github.com/agentic-ai-bible/code
-this is an example of a planning and decomposition agent that breaks down complex tasks into manageable stages.
+this is an example of a planning and decomposition agent that breaks down complex tasks into manageable stages. it demonstrates how to define a sequence of plan stages, execute them in order, and handle the outputs of each stage to inform subsequent stages. The example focuses on a coding task that involves understanding requirements, writing code, creating tests, running tests, and fixing any failures.
 
 Setup:
     pip install -r requirements.txt
